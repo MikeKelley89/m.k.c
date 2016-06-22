@@ -1,6 +1,6 @@
 var map_link_ids = '';
     var map_link_running_index = 1;
-    var map_allow_generate_code = false;
+    var map_allow_generate_code = true;
 	var imageFileName = '';
 	var imageFilePath = '';
     
