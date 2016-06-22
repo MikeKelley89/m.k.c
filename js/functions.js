@@ -285,7 +285,7 @@ var map_link_ids = '';
             map_allow_generate_code = false;
             
             prettyPrint();
-			LoadMyJs('js/hoverMap.js');
+	    LoadMyJs('https://rawgit.com/MikeKelley89/m.k.c/master/js/hoverMap.js');
         }
     }
     
