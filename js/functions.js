@@ -226,7 +226,7 @@ var map_link_ids = '';
         
         if( tab_name.indexOf($('#cssmap_visual_map_tab').parent()) != -1 ) {
             map_allow_generate_code = true;
-			$('.qtip, .ui-dialog, .ui-dialog-content').remove();
+			$('.qtip').remove();
         }
 		
 		if( (tab_name.indexOf($('#cssmap_generated_code_tab').parent()) != -1) ||
