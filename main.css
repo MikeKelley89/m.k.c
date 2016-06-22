@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css?family=Droid+Sans:400,700');
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700,400italic,700italic');
+
+body 	{
+		text-align: left;
+		font-family: 'Roboto', sans-serif;
+		color: #222;
+		line-height: 18pt;
+		font-size: 12pt;
+		width: 1250px;
+		margin: auto auto;
+}
+	
+h1, h2, h3, h4 {
+	font-family: 'Droid Sans', sans-serif;
+	margin: 1em 0 0.5em 0;
+}
+
+h1 {
+	font-size: 24pt;
+	font-weight: normal;
+	margin-top: 1em;
+}
+
+h2 {
+	font-weight: normal;
+	color: #515964;
+}
+
+pre.prettyprint {
+    overflow: auto;
+    font-size: 11pt;
+    line-height: 12pt;
+}
+
+tbody tr {
+    font-size: 10pt;
+}
+
+span.warn {
+	color: red;
+	opacity: 0.6;
+	font-style: italic;
+}
+
+div.tools ul li {
+	margin: 8px !important;
+}
+
+.borderSettings {
+    width: 452px;
+    font-size: 12pt;
+    padding: 8px;
+}
+
+.borderSettings p {
+	margin: 0;
+    padding: 4px;
+}
+
+span.code {
+    background-color: #ddd;
+    font-family: monospace;
+    padding: 2px;
+    font-size: 12pt;
+}
+
+span.required, span.optional {
+	font-size: 10pt;
+	margin: 4px;
+}
+
+span.required {
+	color: red;
+}
+
+span.optional {
+	color: steelblue;
+}
+
+.ui-dialog {
+    width: 375px !important;
+}
+input[type="file"] {
+    display: none;
+}
+.fileUpload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}

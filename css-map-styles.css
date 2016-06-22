@@ -1,0 +1,51 @@
+#cssmap_tab_container ul {
+    list-style-type: disc;
+}
+
+#cssmap_tab_container div.tools ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#cssmap_tab_container div.tools ul li {
+    list-style-type: none;
+    margin: 2px;
+    padding: 0;
+}
+
+#cssmap_tab_container #visual_map_container {
+	width: 100%;
+    margin: 10px auto;
+    position: relative;
+}
+
+#cssmap_tab_container #visual_map_container {
+	margin-top: 50px;
+}
+
+#cssmap_tab_container #visual_map_container .map_link {
+    overflow: visible;
+    display: flex;
+}
+
+#cssmap_tab_container #visual_map_container .map_link .ui-button-icon-only {
+    top: -43px;
+    display: inline-flex;
+    overflow: visible;
+    height: 2.2em;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+}
+
+#cssmap_tab_container .ui-dialog {
+    font-size: 12px;
+}
+
+#cssmap_tab_container .ui-dialog th {
+    text-align: left;
+}
+.hoverMap {
+	margin-top: 50px;
+}
+    
