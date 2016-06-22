@@ -1,10 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Droid+Sans:400,700');
-
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700,400italic,700italic');
-
 body 	{
 		text-align: left;
-		font-family: 'Roboto', sans-serif;
 		color: #222;
 		line-height: 18pt;
 		font-size: 12pt;
@@ -13,7 +8,6 @@ body 	{
 }
 	
 h1, h2, h3, h4 {
-	font-family: 'Droid Sans', sans-serif;
 	margin: 1em 0 0.5em 0;
 }
 
@@ -52,6 +46,15 @@ div.tools ul li {
     width: 452px;
     font-size: 12pt;
     padding: 8px;
+}
+
+.borderSettings table {
+	border-collapse: separate;
+	border-spacing: 8px;
+}
+
+.borderSettings td *, .borderSettings td {
+	width: 85px;
 }
 
 .borderSettings p {
