@@ -237,7 +237,7 @@ var map_link_ids = '';
             
             //generate css rules
             var codeCSS = ' /* These rules are for <add your description here> */' + "\n" +
-			"\n" + '.hoverMap#' + $('#map_link_name').val() + ':hover .mapLink {border: ' + $('.borderWidth').val()+'px ' + $('.borderStyle').val() + ' ' + $('.borderColor').val()  + '}' + "\n";
+			"\n" + '.hoverMap#' + $('#map_link_name').val() + ':hover .mapLink {border: ' + $('.borderWidth').val()+'px ' + $('.borderStyle').val() + ' ' + $('.borderColor').val()  + ';}' + "\n";
 			
 			/* This is the old, original stuff stuff
 			'<style type="text/css">' + "\n" +
