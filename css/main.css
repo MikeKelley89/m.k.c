@@ -83,7 +83,7 @@ div.tools ul li {
 }
 
 .ui-dialog {
-    width: 375px !important;
+    width: auto !important;
 }
 input[type="file"] {
     display: none;
