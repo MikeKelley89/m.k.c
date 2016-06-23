@@ -7,7 +7,6 @@ var map_link_ids = '';
     $(document).ready(function() {
         //window.onbeforeunload = "Are you sure you want to leave? Your image map will not be saved!";
 		
-		$('[title!=""]').qtip();
 		$('.cssmap_button').button();
 		$('.cssmap_button').button('disable');	
 		
@@ -162,7 +161,7 @@ var map_link_ids = '';
             $('#cssmap_tab_container').append(map_link_properties);
 			
             $('#' + $new_id + '_properties').dialog({
-                autoOpen: false,
+                autoOpen: true,
                 modal: true
             });
 		
