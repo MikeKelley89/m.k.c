@@ -4,7 +4,13 @@ var map_link_ids = '';
 	var imageFileName = '';
 	var imageFilePath = '';
 
-
+$.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
+ 
+		position	: { my : "right middle", at : "left middle", y: "-16"},
+		style		: { classes: "qtip-blue qtip-shadow"},
+		show		: {solo: "true"}
+ 
+	});
 
     $(document).ready(function() {
         //window.onbeforeunload = "Are you sure you want to leave? Your image map will not be saved!";
