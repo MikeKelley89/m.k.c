@@ -1,3 +1,8 @@
+
+$(document).ready(function() {
+$('[title!=""]').qtip(); 
+});
+
 var map_link_ids = '';
     var map_link_running_index = 1;
     var map_allow_generate_code = true;
