@@ -19,7 +19,7 @@ $.fn.qtip.defaults = {
     style: {
     	classes: 'qtip-blue qtip-shadow'
     }
-}
+};
 
     $(document).ready(function() {
         //window.onbeforeunload = "Are you sure you want to leave? Your image map will not be saved!";
