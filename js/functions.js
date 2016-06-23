@@ -1,18 +1,26 @@
-
-$(document).ready(function() {
-$('[title!=""]').qtip({ // Grab some elements to apply the tooltip to
-    content: {
-        text: 'My common piece of text here'
-    }
-})
-});
-
 var map_link_ids = '';
     var map_link_running_index = 1;
     var map_allow_generate_code = true;
 	var imageFileName = '';
 	var imageFilePath = '';
-    
+
+$.fn.qtip.defaults = {
+	position: {
+        my: 'right middle',
+        at: 'left middle',
+        target: false, // Defaults to target element
+        adjust: {
+        	y: -16 // Minor x/y adjustments
+        }
+	},
+    show: {
+    	solo: true
+    },
+    style: {
+    	classes: 'qtip-blue qtip-shadow'
+    }
+}
+
     $(document).ready(function() {
         //window.onbeforeunload = "Are you sure you want to leave? Your image map will not be saved!";
 		
@@ -173,6 +181,8 @@ var map_link_ids = '';
                 autoOpen: true,
                 modal: true
             });
+            
+            $("td[title!=''][title]").qtip();
 		
 		/* This works, but I need a way to tie it into the CURRENT properties popup, and then tie the result into
 		    the corresponding anchor box (i.e., make the correct box turn into a circle if someone picks "yes" on one 
