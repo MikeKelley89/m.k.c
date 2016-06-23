@@ -6,7 +6,7 @@ var map_link_ids = '';
 
 $.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
  
-		position	: { my : "right middle", at : "left middle", y: "-16"},
+		position	: { my : "right middle", at : "left middle", x: "-16"},
 		style		: { classes: "qtip-blue qtip-shadow"},
 		show		: {solo: "true"}
  
