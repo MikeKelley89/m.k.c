@@ -7,7 +7,7 @@ var map_link_ids = '';
 $.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
  
 		position	: { my : "right middle", at : "left middle", x: "-24"},
-		style		: { classes: "qtip-light qtip-shadow"},
+		style		: { classes: "qtip-light qtip-shadow mkc"},
 		show		: {solo: "true"}
  
 	});
@@ -148,9 +148,9 @@ $.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
             map_link_properties.attr('title', $new_id + ' Properties');
             map_link_properties.html(
                 '<table><tbody>' +
-                    '<tr><td title="Required. This provides a fallback if your hovermap stops working temporarily."><i class="fa fa-question-circle-o required"></i> Link Text<span class="required">*</span></td>' +
+                    '<tr><td title="Required. This provides a fallback if your hovermap stops working temporarily."><i class="fa fa-question-circle-o required"></i> Link Text</td>' +
                     '<td><input id="' + $new_id + '_text" type="text"></td></tr>' +
-					'<tr><td title="Required. No spaces or special characters allowed."><i class="fa fa-question-circle-o required"></i> Name<span class="required">*</span></td>' +
+					'<tr><td title="Required. No spaces or special characters allowed."><i class="fa fa-question-circle-o required"></i> Name</td>' +
                     '<td><input id="' + $new_id + '_url" type="text"></td></tr>' +
                     '<tr><td title="Optional. Usually the same as Link Text. This can be helpful for accessibility reasons."><i class="fa fa-question-circle-o optional"></i> Title</td>' +
                     '<td><input id="' + $new_id + '_title" type="text"></td></tr>' +
