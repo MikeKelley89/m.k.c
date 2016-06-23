@@ -7,7 +7,7 @@ var map_link_ids = '';
 $.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
  
 		position	: { my : "right middle", at : "left middle", x: "-24"},
-		style		: { classes: "qtip-blue qtip-shadow"},
+		style		: { classes: "qtip-light qtip-shadow"},
 		show		: {solo: "true"}
  
 	});
@@ -148,21 +148,17 @@ $.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
             map_link_properties.attr('title', $new_id + ' Properties');
             map_link_properties.html(
                 '<table><tbody>' +
-                    '<tr><td>Link Text<span class="required">*</span></td>' +
+                    '<tr><td title="Required. This provides a fallback if your hovermap stops working temporarily."><i class="fa fa-question-circle-o required"></i> Link Text<span class="required">*</span></td>' +
                     '<td><input id="' + $new_id + '_text" type="text"></td></tr>' +
-					'<tr><td>Name<span class="required">*</span></td>' +
+					'<tr><td title="Required. No spaces or special characters allowed."><i class="fa fa-question-circle-o required"></i> Name<span class="required">*</span></td>' +
                     '<td><input id="' + $new_id + '_url" type="text"></td></tr>' +
-					'<tr><td colspan="2"><span class="required">No spaces or special characters</span></td></tr>' +
-                    '<tr><td>Title</td>' +
+                    '<tr><td title="Optional. Usually the same as Link Text. This can be helpful for accessibility reasons."><i class="fa fa-question-circle-o optional"></i> Title</td>' +
                     '<td><input id="' + $new_id + '_title" type="text"></td></tr>' +
-					'<tr><td colspan="2"><span class="optional">Usually the same as Link Text</span></td></tr>' +
-					'<tr><td>X offset</td>' +
+				/*	'<tr><td title="Optional. This moves the popup box X pixels horizontally. Positive values move it to the right."><i class="fa fa-question-circle-o optional"></i> X offset</td>' +
                     '<td><input id="' + $new_id + '_xOffset" type="number"></td></tr>' +
-					'<tr><td colspan="2"><span class="optional">This moves the popup box X pixels horizontally. Positive values move it to the right.</span></td></tr>' +
-					'<tr><td title="This moves the popup box Y pixels vertically. Positive values move it down."><i class="fa fa-question-circle-o optional"></i> Y offset</td>' +
+					'<tr><td title="Optional. This moves the popup box Y pixels vertically. Positive values move it down."><i class="fa fa-question-circle-o optional"></i> Y offset</td>' +
                     '<td><input id="' + $new_id + '_yOffset" type="number"></td></tr>' +
-					'<tr><td colspan="2"><span class="optional">This moves the popup box Y pixels vertically. Positive values move it down.</span></td></tr>' +
-				/*	'<tr><td colspan="2">Make this a circle? <input type="radio" name="circle_' + $new_id +'" value="yes"> Yes <input type="radio" name="circle_' + $new_id +'" value="no" checked="checked"> No</td></tr>'+ */
+					'<tr><td colspan="2">Make this a circle? <input type="radio" name="circle_' + $new_id +'" value="yes"> Yes <input type="radio" name="circle_' + $new_id +'" value="no" checked="checked"> No</td></tr>'+ */
 					'</tbody></table>'
 			);
 				
