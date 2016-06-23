@@ -50,7 +50,7 @@ div.tools ul li {
 
 .borderSettings table {
 	border-collapse: separate;
-	border-spacing: 8px;
+	border-spacing: 8px 0;
 }
 
 .borderSettings td *, .borderSettings td {
