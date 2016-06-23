@@ -141,18 +141,18 @@ var map_link_ids = '';
             map_link_properties.attr('title', $new_id + ' Properties');
             map_link_properties.html(
                 '<table><tbody>' +
-                    '<tr><td>Link Text <span class="required">(required)</span></td>' +
+                    '<tr><td>Link Text<span class="required">*</span></td>' +
                     '<td><input id="' + $new_id + '_text" type="text"></td></tr>' +
-					'<tr><td>Name <span class="required">(required)</span></td>' +
+					'<tr><td>Name<span class="required">*</span></td>' +
                     '<td><input id="' + $new_id + '_url" type="text"></td></tr>' +
 					'<tr><td colspan="2"><span class="required">No spaces or special characters</span></td></tr>' +
-                    '<tr><td>Title <span class="optional">(optional)</span></td>' +
+                    '<tr><td>Title</td>' +
                     '<td><input id="' + $new_id + '_title" type="text"></td></tr>' +
 					'<tr><td colspan="2"><span class="optional">Usually the same as Link Text</span></td></tr>' +
-					'<tr><td>X offset <span class="optional">(optional)</span></td>' +
+					'<tr><td>X offset</td>' +
                     '<td><input id="' + $new_id + '_xOffset" type="number"></td></tr>' +
 					'<tr><td colspan="2"><span class="optional">This moves the popup box X pixels horizontally. Positive values move it to the right.</span></td></tr>' +
-					'<tr><td>Y offset <span class="optional">(optional)</span></td>' +
+					'<tr><td title="This moves the popup box Y pixels vertically. Positive values move it down."><i class="fa fa-question-circle-o"></i>Y offset</td>' +
                     '<td><input id="' + $new_id + '_yOffset" type="number"></td></tr>' +
 					'<tr><td colspan="2"><span class="optional">This moves the popup box Y pixels vertically. Positive values move it down.</span></td></tr>' +
 				/*	'<tr><td colspan="2">Make this a circle? <input type="radio" name="circle_' + $new_id +'" value="yes"> Yes <input type="radio" name="circle_' + $new_id +'" value="no" checked="checked"> No</td></tr>'+ */
