@@ -152,7 +152,7 @@ var map_link_ids = '';
 					'<tr><td>X offset</td>' +
                     '<td><input id="' + $new_id + '_xOffset" type="number"></td></tr>' +
 					'<tr><td colspan="2"><span class="optional">This moves the popup box X pixels horizontally. Positive values move it to the right.</span></td></tr>' +
-					'<tr><td title="This moves the popup box Y pixels vertically. Positive values move it down."><i class="fa fa-question-circle-o"></i>Y offset</td>' +
+					'<tr><td title="This moves the popup box Y pixels vertically. Positive values move it down."><i class="fa fa-question-circle-o optional"></i> Y offset</td>' +
                     '<td><input id="' + $new_id + '_yOffset" type="number"></td></tr>' +
 					'<tr><td colspan="2"><span class="optional">This moves the popup box Y pixels vertically. Positive values move it down.</span></td></tr>' +
 				/*	'<tr><td colspan="2">Make this a circle? <input type="radio" name="circle_' + $new_id +'" value="yes"> Yes <input type="radio" name="circle_' + $new_id +'" value="no" checked="checked"> No</td></tr>'+ */
