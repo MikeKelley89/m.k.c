@@ -32,7 +32,7 @@ tbody tr {
     font-size: 10pt;
 }
 
-span.warn {
+.warn {
 	color: red;
 	opacity: 0.6;
 	font-style: italic;
@@ -62,23 +62,23 @@ div.tools ul li {
     padding: 4px;
 }
 
-span.code {
+.code {
     background-color: #ddd;
     font-family: monospace;
     padding: 2px;
     font-size: 12pt;
 }
 
-span.required, span.optional {
+.required, .optional {
 	font-size: 10pt;
 	margin: 4px;
 }
 
-span.required {
+.required {
 	color: red;
 }
 
-span.optional {
+.optional {
 	color: steelblue;
 }
 
