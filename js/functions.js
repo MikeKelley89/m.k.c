@@ -4,22 +4,7 @@ var map_link_ids = '';
 	var imageFileName = '';
 	var imageFilePath = '';
 
-$.fn.qtip.defaults = {
-	position: {
-        my: 'right middle',
-        at: 'left middle',
-        target: false, // Defaults to target element
-        adjust: {
-        	y: -16 // Minor x/y adjustments
-        }
-	},
-    show: {
-    	solo: true
-    },
-    style: {
-    	classes: 'qtip-blue qtip-shadow'
-    }
-};
+
 
     $(document).ready(function() {
         //window.onbeforeunload = "Are you sure you want to leave? Your image map will not be saved!";
