@@ -7,7 +7,7 @@ var map_link_ids = '';
     $(document).ready(function() {
         //window.onbeforeunload = "Are you sure you want to leave? Your image map will not be saved!";
 		
-		
+		$('[title!=""]').qtip();
 		$('.cssmap_button').button();
 		$('.cssmap_button').button('disable');	
 		
