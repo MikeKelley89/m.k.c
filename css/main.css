@@ -96,4 +96,10 @@ input[type="file"] {
 }
 .mkc .qtip-content{
     font-size: 10pt;
+    line-height: 12pt;
+    padding: 8px;
+}
+.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-front.ui-draggable.ui-resizable div table {
+    border-collapse: separate;
+    border-spacing: 8px 0;
 }
