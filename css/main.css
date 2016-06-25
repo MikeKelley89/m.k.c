@@ -1,25 +1,3 @@
-body 	{
-		text-align: left;
-		color: #222;
-		width: 1250px;
-		margin: auto auto;
-}
-	
-h1, h2, h3, h4 {
-	margin: 1em 0 0.5em 0;
-}
-
-h1 {
-	font-size: 24pt;
-	font-weight: normal;
-	margin-top: 1em;
-}
-
-h2 {
-	font-weight: normal;
-	color: #515964;
-}
-
 pre.prettyprint {
     overflow: auto;
     font-size: 11pt;
