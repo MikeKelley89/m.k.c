@@ -3,7 +3,7 @@ $(document).ready(function () {
 	'use strict';
 
 	$('.hoverMap').hover(function () {
-		$(this).children().css({'animation':'none'});
+		$(this.id).add('.mapLink').addClass('disableStuff');
 	});
 
 	$('.mapLink').hover(function () {
