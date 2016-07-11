@@ -1,4 +1,4 @@
-﻿.hoverMap {
+.hoverMap {
     display: -webkit-inline-box;
     display: -webkit-inline-flex;
     display: -ms-inline-flexbox;
@@ -6,10 +6,10 @@
     position: relative;
     margin: 8px;
 }
-.hoverMap .mapImage {
+.hoverMap img, .hoverMap p {
     margin:	0;
     padding: 0;
-	border: 0;
+    border: 0;
 }
 .overlay {
     background:rgba(0, 0, 0, .45);
@@ -19,8 +19,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
-    width: 100%;
+    right: 0;
+    bottom: 0;
 }
 .hoverMap .mapLink {
     display: block;
@@ -46,7 +46,6 @@
 	cursor: default;
 }
 .mapLink {
-	border: 2px solid transparent;
 	animation-name: pulse;
 	animation-duration: 5s;
 	animation-fill-mode: both;
@@ -54,9 +53,9 @@
 	animation-iteration-count: infinite;
 }
 @keyframes pulse {
-	0% {opacity: 0; border: 2px solid #fa8c00;} 
-	30% {opacity: .6;} 
-	40% {opacity: .6;} 
+	0% {opacity: 0;} 
+	30% {opacity: .7;} 
+	40% {opacity: .7;} 
 	80% {opacity: 0;} 
-	100% {opacity: 0; border: 2px solid #fa8c00;}
+	100% {opacity: 0;}
 }
