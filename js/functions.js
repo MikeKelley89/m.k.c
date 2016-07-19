@@ -242,7 +242,7 @@ $.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
             
             //generate css rules
             var codeCSS = ' /* These rules are for <add your description here> */' + "\n" +
-			"\n" + '.hoverMap#' + $('#map_link_name').val() + ':hover .mapLink {border: ' + $('.borderWidth').val()+'px ' + $('.borderStyle').val() + ' ' + $('.borderColor').val()  + ';}' + "\n" +
+			"\n" + '.hoverMap#' + $('#map_link_name').val() + ' .mapLink {border: ' + $('.borderWidth').val()+'px ' + $('.borderStyle').val() + ' ' + $('.borderColor').val()  + ';}' + "\n" +
 			'.hoverMap#' + $('#map_link_name').val() + ' .mapLink.disableStuff {border: none; animation: none;}' + "\n" +
 			'.hoverMap#' + $('#map_link_name').val() + ':hover .mapLink {border: ' + $('.borderWidth').val()+'px ' + $('.borderStyle').val() + ' ' + $('.borderColor').val()  + ';}' + "\n";
 				
