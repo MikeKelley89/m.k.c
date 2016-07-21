@@ -159,7 +159,23 @@ $.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
 					'<tr><td title="Optional. This moves the popup box Y pixels vertically. Positive values move it down."><i class="fa fa-question-circle-o optional"></i> Y offset</td>' +
                     '<td><input id="' + $new_id + '_yOffset" type="number"></td></tr>' +
                     '<tr><td colspan="2">Do you want the popup box to attach to the hotspot area or to the parent image? <input type="radio" name="popup_' + $new_id +'" id="popup_hotspot" value="hotspot" checked="checked"> Hotspot <input type="radio" name="popup_' + $new_id +'" id="popup_parentImage" value="no"> Parent image</td></tr>'+
-					'<tr><td colspan="2">Make this a circle? <input type="radio" name="circle_' + $new_id +'" id="makeCircle" value="yes"> Yes <input type="radio" name="circle_' + $new_id +'" value="no" checked="checked"> No</td></tr>'+
+					'<tr><td colspan="2"><form action="#" method="post" class="radios" id="radios"> +
+						'<fieldset>' +
+							'<legend>Additional options</legend>' +
+								'<p>Make this a circle?' +
+									'<label><input type="radio" name="circle" value="yes" /> Yes</label>' +
+									'<label><input type="radio" name="circle" value="no" checked /> No</label>' +
+								'</p>' +
+								'<p>Attach popup to the hotspot or to the parent image? ' +
+									'<label><input type="radio" name="popup" value="hotspot" checked /> Hotspot</label>' +
+									'<label><input type="radio" name="popup" value="parent" /> Parent image</label>' +
+								'</p>' +
+						'</fieldset>' +
+					'</form></td></tr>' +
+					
+					
+					
+				/*	Make this a circle? <input type="radio" name="circle_' + $new_id +'" id="makeCircle" value="yes"> Yes <input type="radio" name="circle_' + $new_id +'" value="no" checked="checked"> No</td></tr>'+ */
 					'</tbody></table>'
 			);
 				
@@ -261,7 +277,23 @@ $.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
                 */
                 codeCSS += "\n" + '#' + map_link_ids[i] + ' { width: ' + a.css('width') + '; height: ' + a.css('height') + '; top: '+ a.css('top') + '; left: ' + a.css('left');
                 
-                if ($(this).find('#makeCircle').checked) {
+                function getRadioVal(form, name) {
+    				var val;
+    				// get list of radio buttons with specified name
+    				var radios = form.elements[name];
+    
+    				// loop through list of radio buttons
+    				for (var i=0, len=radios.length; i<len; i++) {
+        				if ( radios[i].checked ) { // radio checked?
+            			val = radios[i].value; // if so, hold its value in val
+            			break; // and break out of for loop
+        				}
+    				}
+					 return val; // return value of checked radio or undefined if none checked
+				}
+                
+                var circle = getRadioVal( document.getElementById('radios'), 'circle' );
+                if (circle === "yes") {
                 	codeCSS += ' border-radius: 100%; }';
                 } else {
                 	codeCSS += '; }';
@@ -296,7 +328,8 @@ $.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
                 	var yOffset = $('#' + map_link_ids[i] + '_yOffset').val();
                 	codeHTML += ' data-position.adjust.y="' + yOffset + '"';
                 }
-                if ($(this).find('#popup_parentImage').checked) {
+                var popup = getRadioVal( document.getElementById('radios'), 'popup' );
+                if (popup === "parent") {
                 	codeHTML += ' data-tooltip-atParent="true"';
                 }
                 
