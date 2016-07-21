@@ -293,7 +293,7 @@ $.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
                 }
                 if ($('#' + map_link_ids[i] + '_yOffset').val())
                 {
-                	var xOffset = $('#' + map_link_ids[i] + '_yOffset').val();
+                	var yOffset = $('#' + map_link_ids[i] + '_yOffset').val();
                 	codeHTML += ' data-position.adjust.y="' + yOffset + '"';
                 }
                 if ($(this).find('#popup_parentImage').checked) {
