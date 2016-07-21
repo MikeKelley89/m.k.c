@@ -292,7 +292,7 @@ $.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
             map_allow_generate_code = false;
             
             prettyPrint();
-	    LoadMyJs('https://rawgit.com/MikeKelley89/m.k.c/master/js/hoverMap.js');
+	    LoadMyJs('https://rawgit.com/MikeKelley89/m.k.c/master/js/hovermap.js');
         }
     }
     
