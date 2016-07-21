@@ -154,11 +154,11 @@ $.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
                     '<td><input id="' + $new_id + '_url" type="text"></td></tr>' +
                     '<tr><td title="Optional. Usually the same as Link Text. This can be helpful for accessibility reasons."><i class="fa fa-question-circle-o optional"></i> Title</td>' +
                     '<td><input id="' + $new_id + '_title" type="text"></td></tr>' +
-				/*	'<tr><td title="Optional. This moves the popup box X pixels horizontally. Positive values move it to the right."><i class="fa fa-question-circle-o optional"></i> X offset</td>' +
+		    '<tr><td title="Optional. This moves the popup box X pixels horizontally. Positive values move it to the right."><i class="fa fa-question-circle-o optional"></i> X offset</td>' +
                     '<td><input id="' + $new_id + '_xOffset" type="number"></td></tr>' +
 					'<tr><td title="Optional. This moves the popup box Y pixels vertically. Positive values move it down."><i class="fa fa-question-circle-o optional"></i> Y offset</td>' +
                     '<td><input id="' + $new_id + '_yOffset" type="number"></td></tr>' +
-					'<tr><td colspan="2">Make this a circle? <input type="radio" name="circle_' + $new_id +'" value="yes"> Yes <input type="radio" name="circle_' + $new_id +'" value="no" checked="checked"> No</td></tr>'+ */
+					/*'<tr><td colspan="2">Make this a circle? <input type="radio" name="circle_' + $new_id +'" value="yes"> Yes <input type="radio" name="circle_' + $new_id +'" value="no" checked="checked"> No</td></tr>'+ */
 					'</tbody></table>'
 			);
 				
@@ -274,8 +274,26 @@ $.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
                 var text = $('#' + map_link_ids[i] + '_text').val();
                 var title = $('#' + map_link_ids[i] + '_title').val();
                 var url = $('#' + map_link_ids[i] + '_url').val();
+                
+                
+                var yOffset = $('#' + map_link_ids[i] + '_yOffset').val();
             				
-                codeHTML += "\n \t" + '<a class="mapLink" id="' + map_link_ids[i] + '" title="' + title + '" href="#' + url + '">' + text + '</a>';
+                codeHTML += "\n \t" + '<a class="mapLink" id="' + map_link_ids[i] + '"';
+                
+                if ($('#' + map_link_ids[i] + '_xOffset').val())
+                {
+                	var xOffset = $('#' + map_link_ids[i] + '_xOffset').val();
+                	codeHTML += ' data-position.adjust.x=' + xOffset;
+                }
+                if ($('#' + map_link_ids[i] + '_yOffset').val())
+                {
+                	var xOffset = $('#' + map_link_ids[i] + '_yOffset').val();
+                	codeHTML += ' data-position.adjust.y=' + yOffset;
+                }
+                codeHTML += ' title="' + title + '" href="#' + url + '">' + text + '</a>';
+                
+                
+                
 				popupDivs += "\n" + '<div class="imageMapPop" id="' + url +'">' + "\n \t" + '<p>Put something useful here.</p>' + "\n" + '</div>';
             }
             
