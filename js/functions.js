@@ -159,7 +159,7 @@ $.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
 					'<tr><td title="Optional. This moves the popup box Y pixels vertically. Positive values move it down."><i class="fa fa-question-circle-o optional"></i> Y offset</td>' +
                     '<td><input id="' + $new_id + '_yOffset" type="number"></td></tr>' +
                     '<tr><td colspan="2">Do you want the popup box to attach to the hotspot area or to the parent image? <input type="radio" name="popup_' + $new_id +'" id="popup_hotspot" value="hotspot" checked="checked"> Hotspot <input type="radio" name="popup_' + $new_id +'" id="popup_parentImage" value="no"> Parent image</td></tr>'+
-					'<tr><td colspan="2"><form action="#" method="post" class="radios" id="radios"> +
+					'<tr><td colspan="2"><form action="#" method="post" class="radios" id="radios">' +
 						'<fieldset>' +
 							'<legend>Additional options</legend>' +
 								'<p>Make this a circle?' +
