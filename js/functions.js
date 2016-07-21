@@ -158,7 +158,7 @@ $.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
                     '<td><input id="' + $new_id + '_xOffset" type="number"></td></tr>' +
 					'<tr><td title="Optional. This moves the popup box Y pixels vertically. Positive values move it down."><i class="fa fa-question-circle-o optional"></i> Y offset</td>' +
                     '<td><input id="' + $new_id + '_yOffset" type="number"></td></tr>' +
-					'<tr><td colspan="2"><form action="#" method="post" class="radios" id="radios">' +
+					'<tr><td colspan="2"><form action="#" method="post" class="radio_' + $new_id + '" id="radio_' + $new_id + '">' +
 						'<fieldset>' +
 							'<legend><strong>Additional options</strong>:</legend>' +
 								'<p>Make this a circle?' +
@@ -291,7 +291,7 @@ $.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
 					 return val; // return value of checked radio or undefined if none checked
 				}
                 
-                var circle = getRadioVal( document.getElementById('radios'), 'circle' );
+                var circle = getRadioVal( document.getElementById('radio_' + map_link_ids[i]), 'circle' );
                 if (circle === "yes") {
                 	codeCSS += ' border-radius: 100%; }';
                 } else {
@@ -327,7 +327,7 @@ $.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
                 	var yOffset = $('#' + map_link_ids[i] + '_yOffset').val();
                 	codeHTML += ' data-position.adjust.y="' + yOffset + '"';
                 }
-                var popup = getRadioVal( document.getElementById('radios'), 'popup' );
+                var popup = getRadioVal( document.getElementById('radio_' + map_link_ids[i]), 'popup' );
                 if (popup === "parent") {
                 	codeHTML += ' data-tooltip-atParent="true"';
                 }
