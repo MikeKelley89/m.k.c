@@ -179,6 +179,13 @@ $.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
 			);
 				
             $('#cssmap_tab_container').append(map_link_properties);
+            
+            val thisCircle = getRadioVal( document.getElementById('radio_' + $new_id), 'circle' );
+            if (thisCircle === "yes") {
+            	$(map_link_properties).css({'border-radius': '100%'})
+            } else {
+            	$(map_link_properties).css({'border-radius': '0'})
+            }
 			
             $('#' + $new_id + '_properties').dialog({
                 autoOpen: true,
