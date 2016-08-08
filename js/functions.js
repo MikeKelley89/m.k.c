@@ -289,7 +289,7 @@ $.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
                 var real_rel_position_top = (a.offset().top - parent_offset.top) + 'px';
                 var real_rel_position_left = (a.offset().left - parent_offset.left) + 'px';
                 */
-                codeCSS += "\n" + '#' + map_link_ids[i] + ' { width: ' + a.css('width') + '; height: ' + a.css('height') + '; top: '+ a.css('top') + '; left: ' + a.css('left') + ';';
+                codeCSS += "\n" + '#' + map_link_ids[i] + ' { width: ' + a.css('width') + '; height: ' + a.css('height') + '; top: '+ a.css('top') + '; left: ' + a.css('left');
                 
                 var circle = getRadioVal( document.getElementById('radio_' + map_link_ids[i]), 'circle' );
                 if (circle === "yes") {
