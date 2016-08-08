@@ -383,7 +383,7 @@ $('#cssmap_tab_container').tabs({
     }
        
       
-   }
+   
     
     if (!Array.prototype.indexOf)
     {
