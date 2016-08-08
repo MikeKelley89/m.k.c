@@ -374,17 +374,13 @@ $('#cssmap_tab_container').tabs({
     		}
 		return val; // return value of checked radio or undefined if none checked
 	}
-    
-	
+
     function delete_link(id) {
         $('#' + id).remove();
         $('#' + id + 'properties').remove();
         map_link_ids.splice(map_link_ids.indexOf(id), 1);
     }
-       
-      
-   
-    
+
     if (!Array.prototype.indexOf)
     {
       Array.prototype.indexOf = function(elt /*, from*/)
