@@ -173,7 +173,6 @@ $('#cssmap_tab_container').tabs({
 
       $(window).scrollTop($(this).data('scrollTop')); // finally, set it back
     }
-
   }
   /*activate: tab_select*/
 });
