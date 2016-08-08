@@ -47,141 +47,136 @@ $.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
     })
 		
 		
-        $('#cssmap_tab_container').tabs({
-             beforeActivate: function(event, ui) {
-        $(this).data('scrollTop', $(window).scrollTop()); // save scrolltop
-    },
-    activate: function(event, ui) {
-        if (!$(this).data('scrollTop')) { // there was no scrolltop before
-            jQuery('html').css('height', 'auto'); // reset back to auto...
-                    // this may not work on page where originally
-                    // the html tag was of a fixed height...
-            return;
-        }
-        //console.log('activate: scrolltop pred = ' + $(this).data('scrollTop') + ', nyni = ' + $(window).scrollTop());
-        if ($(window).scrollTop() == $(this).data('scrollTop')) // the scrolltop was not moved
-            return;                // nothing to be done
-        // scrolltop moved - we need to fix it
-        var min_height = $(this).data('scrollTop') + $(window).height();
-            // minimum height the document must have to have that scrollTop
-        if ($('html').outerHeight() < min_height) { // just a test to be sure
-                            // but this test should be always true
-            /* be sure to use $('html').height() instead of $(document).height()
-               because the document height is always >= window height!
-               Not what you want. And to handle potential html padding, be sure
-               to use outerHeight instead!
-                   Now enlarge the html tag (unfortunatelly cannot set
-               $(document).height()) - we want to set min_height
-               as html's outerHeight:
-             */
-            $('html').height(min_height -
-                 ($('html').outerHeight() - $('html').height()));
-        }
-        
-        
-        var tab_name = ui.newTab + '';
-        
-        if( tab_name.indexOf($('#cssmap_visual_map_tab').parent()) != -1 ) {
-            map_allow_generate_code = true;
-			$('.qtip').remove();
-        }
-		
-		if( (tab_name.indexOf($('#cssmap_generated_code_tab').parent()) != -1) ||
-            (tab_name.indexOf($('#cssmap_preview_tab').parent()) != -1) ) {
-            
-            var map_width = $('#visual_map_container').css('width');
-            var map_height = $('#visual_map_container').css('height');
-            
-            //generate css rules
-            var codeCSS = ' /* These rules are for <add your description here> */' + "\n" +
-			"\n" + '.hoverMap#' + $('#map_link_name').val() + ' .mapLink {border: ' + $('.borderWidth').val()+'px ' + $('.borderStyle').val() + ' ' + $('.borderColor').val()  + ';}' + "\n" +
-			'.hoverMap#' + $('#map_link_name').val() + ' .mapLink.disableStuff {border: none; animation: none;}' + "\n" +
-			'.hoverMap#' + $('#map_link_name').val() + ':hover .mapLink {border: ' + $('.borderWidth').val()+'px ' + $('.borderStyle').val() + ' ' + $('.borderColor').val()  + ';}' + "\n";
-				
-			/* This is the old, original stuff stuff
+$('#cssmap_tab_container').tabs({
+  beforeActivate: function(event, ui) {
+    $(this).data('scrollTop', $(window).scrollTop()); // save scrolltop
+  },
+  activate: function(event, ui) {
+    if (!$(this).data('scrollTop')) { // there was no scrolltop before
+      jQuery('html').css('height', 'auto'); // reset back to auto...
+      // this may not work on page where originally
+      // the html tag was of a fixed height...
+      return;
+    }
+    //console.log('activate: scrolltop pred = ' + $(this).data('scrollTop') + ', nyni = ' + $(window).scrollTop());
+    if ($(window).scrollTop() == $(this).data('scrollTop')) // the scrolltop was not moved
+      return; // nothing to be done
+    // scrolltop moved - we need to fix it
+    var min_height = $(this).data('scrollTop') + $(window).height();
+    // minimum height the document must have to have that scrollTop
+    if ($('html').outerHeight() < min_height) { // just a test to be sure
+      // but this test should be always true
+      /* be sure to use $('html').height() instead of $(document).height()
+         because the document height is always >= window height!
+         Not what you want. And to handle potential html padding, be sure
+         to use outerHeight instead!
+             Now enlarge the html tag (unfortunatelly cannot set
+         $(document).height()) - we want to set min_height
+         as html's outerHeight:
+       */
+      $('html').height(min_height -
+        ($('html').outerHeight() - $('html').height()));
+    }
+
+    var tab_name = ui.newTab + '';
+
+    if (tab_name.indexOf($('#cssmap_visual_map_tab').parent()) != -1) {
+      map_allow_generate_code = true;
+      $('.qtip').remove();
+    }
+
+    if ((tab_name.indexOf($('#cssmap_generated_code_tab').parent()) != -1) ||
+      (tab_name.indexOf($('#cssmap_preview_tab').parent()) != -1)) {
+
+      var map_width = $('#visual_map_container').css('width');
+      var map_height = $('#visual_map_container').css('height');
+
+      //generate css rules
+      var codeCSS = ' /* These rules are for <add your description here> */' + "\n" +
+        "\n" + '.hoverMap#' + $('#map_link_name').val() + ' .mapLink {border: ' + $('.borderWidth').val() + 'px ' + $('.borderStyle').val() + ' ' + $('.borderColor').val() + ';}' + "\n" +
+        '.hoverMap#' + $('#map_link_name').val() + ' .mapLink.disableStuff {border: none; animation: none;}' + "\n" +
+        '.hoverMap#' + $('#map_link_name').val() + ':hover .mapLink {border: ' + $('.borderWidth').val() + 'px ' + $('.borderStyle').val() + ' ' + $('.borderColor').val() + ';}' + "\n";
+
+      /* This is the old, original stuff stuff
 			'<style type="text/css">' + "\n" +
                 "\t" + '.map_image { display: block; width: ' + map_width + '; height: ' + map_height + '; position: relative; background-position: 0 0; background-repeat: no-repeat; }' + "\n" +
                 "\t" + '.map_image .map_link { display: block; position: absolute; text-indent: -999em; overflow: hidden; }' + "\n" + */
-				       
-            for(var i=0; i<map_link_ids.length; i++) {
-                var a = $('#' + map_link_ids[i]);
-                
-				/*var parent_offset = a.offsetParent().offset();
-                var real_rel_position_top = (a.offset().top - parent_offset.top) + 'px';
-                var real_rel_position_left = (a.offset().left - parent_offset.left) + 'px';
-                */
-                codeCSS += "\n" + '#' + map_link_ids[i] + ' { width: ' + a.css('width') + '; height: ' + a.css('height') + '; top: '+ a.css('top') + '; left: ' + a.css('left');
-                
-                var circle = getRadioVal( document.getElementById('radio_' + map_link_ids[i]), 'circle' );
-                if (circle === "yes") {
-                	codeCSS += ' border-radius: 100%; }';
-                } else {
-                	codeCSS += '; }';
-                }
-            }
-			
-            var image_url = $('#visual_map_container>img').attr('src');
-            
-            //now generate the html
-            var codeHTML = '<div class="hoverMap" id="' + $('#map_link_name').val() + '">' +
-			"\n \t" + '<img src="images/' + imageFileName + '" class="mapImage" />' + "\n" +
-			"\n \t" + '<div class="overlay"></div>' + "\n";
-			
-            var popupDivs = "\n";
-			
-            for(var i=0; i<map_link_ids.length; i++) {
-                var text = $('#' + map_link_ids[i] + '_text').val();
-                var title = $('#' + map_link_ids[i] + '_title').val();
-                var url = $('#' + map_link_ids[i] + '_url').val();
-            	
-            	/* Begin building the HTML string */			
-                codeHTML += "\n \t" + '<a class="mapLink" id="' + map_link_ids[i] + '"';
-                
-                /* Check for optional settings */
-                if ($('#' + map_link_ids[i] + '_xOffset').val())
-                {
-                	var xOffset = $('#' + map_link_ids[i] + '_xOffset').val();
-                	codeHTML += ' data-position.adjust.x="' + xOffset + '"';
-                }
-                if ($('#' + map_link_ids[i] + '_yOffset').val())
-                {
-                	var yOffset = $('#' + map_link_ids[i] + '_yOffset').val();
-                	codeHTML += ' data-position.adjust.y="' + yOffset + '"';
-                }
-                var popup = getRadioVal( document.getElementById('radio_' + map_link_ids[i]), 'popup' );
-                if (popup === "parent") {
-                	codeHTML += ' data-tooltip-atParent="true"';
-                }
-                
-                /* End the HTML string */
-                codeHTML += ' title="' + title + '" href="#' + url + '">' + text + '</a>';
-                
-                
-                
-				popupDivs += "\n" + '<div class="imageMapPop" id="' + url +'">' + "\n \t" + '<p>Put something useful here.</p>' + "\n" + '</div>';
-            }
-            
-            codeHTML += "\n" + '</div>';
-            
-            if(map_allow_generate_code) {
-                $('#cssmap_preview_tab').html('<style type="text/css">'+ "\n" + codeCSS + "\n" + '</style>' + "\n" +
-				codeHTML + popupDivs);
-				$('#cssmap_preview_tab img').attr('src', imageFilePath);
-			    $('#map_css_container').text(codeCSS);
-				$('#map_html_container').text(codeHTML + popupDivs);
-            }
-            
-            map_allow_generate_code = false;
-            
-            prettyPrint();
-	    LoadMyJs('https://rawgit.com/MikeKelley89/m.k.c/master/js/hovermap.js');
-        
-        
-        $(window).scrollTop($(this).data('scrollTop')); // finally, set it back
+
+      for (var i = 0; i < map_link_ids.length; i++) {
+        var a = $('#' + map_link_ids[i]);
+
+        /*var parent_offset = a.offsetParent().offset();
+            var real_rel_position_top = (a.offset().top - parent_offset.top) + 'px';
+            var real_rel_position_left = (a.offset().left - parent_offset.left) + 'px';
+            */
+        codeCSS += "\n" + '#' + map_link_ids[i] + ' { width: ' + a.css('width') + '; height: ' + a.css('height') + '; top: ' + a.css('top') + '; left: ' + a.css('left');
+
+        var circle = getRadioVal(document.getElementById('radio_' + map_link_ids[i]), 'circle');
+        if (circle === "yes") {
+          codeCSS += ' border-radius: 100%; }';
+        } else {
+          codeCSS += '; }';
+        }
+      }
+
+      var image_url = $('#visual_map_container>img').attr('src');
+
+      //now generate the html
+      var codeHTML = '<div class="hoverMap" id="' + $('#map_link_name').val() + '">' +
+        "\n \t" + '<img src="images/' + imageFileName + '" class="mapImage" />' + "\n" +
+        "\n \t" + '<div class="overlay"></div>' + "\n";
+
+      var popupDivs = "\n";
+
+      for (var i = 0; i < map_link_ids.length; i++) {
+        var text = $('#' + map_link_ids[i] + '_text').val();
+        var title = $('#' + map_link_ids[i] + '_title').val();
+        var url = $('#' + map_link_ids[i] + '_url').val();
+
+        /* Begin building the HTML string */
+        codeHTML += "\n \t" + '<a class="mapLink" id="' + map_link_ids[i] + '"';
+
+        /* Check for optional settings */
+        if ($('#' + map_link_ids[i] + '_xOffset').val()) {
+          var xOffset = $('#' + map_link_ids[i] + '_xOffset').val();
+          codeHTML += ' data-position.adjust.x="' + xOffset + '"';
+        }
+        if ($('#' + map_link_ids[i] + '_yOffset').val()) {
+          var yOffset = $('#' + map_link_ids[i] + '_yOffset').val();
+          codeHTML += ' data-position.adjust.y="' + yOffset + '"';
+        }
+        var popup = getRadioVal(document.getElementById('radio_' + map_link_ids[i]), 'popup');
+        if (popup === "parent") {
+          codeHTML += ' data-tooltip-atParent="true"';
+        }
+
+        /* End the HTML string */
+        codeHTML += ' title="' + title + '" href="#' + url + '">' + text + '</a>';
+
+        popupDivs += "\n" + '<div class="imageMapPop" id="' + url + '">' + "\n \t" + '<p>Put something useful here.</p>' + "\n" + '</div>';
+      }
+
+      codeHTML += "\n" + '</div>';
+
+      if (map_allow_generate_code) {
+        $('#cssmap_preview_tab').html('<style type="text/css">' + "\n" + codeCSS + "\n" + '</style>' + "\n" +
+          codeHTML + popupDivs);
+        $('#cssmap_preview_tab img').attr('src', imageFilePath);
+        $('#map_css_container').text(codeCSS);
+        $('#map_html_container').text(codeHTML + popupDivs);
+      }
+
+      map_allow_generate_code = false;
+
+      prettyPrint();
+      LoadMyJs('https://rawgit.com/MikeKelley89/m.k.c/master/js/hovermap.js');
+
+      $(window).scrollTop($(this).data('scrollTop')); // finally, set it back
     }
-            
-            /*activate: tab_select*/
-        });
+
+  };
+  /*activate: tab_select*/
+});
 		
 		
 		
