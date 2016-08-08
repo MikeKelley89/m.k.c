@@ -2,6 +2,14 @@
     list-style-type: disc;
 }
 
+#cssmap_tab_container div[id^=cssmap] {
+    overflow: auto;
+}
+
+#cssmap_tab_container div.hovermap img.mapimage {
+    max-width: none;
+}
+
 #cssmap_tab_container div.tools ul {
     list-style-type: none;
     margin: 0;
