@@ -2,11 +2,14 @@
     list-style-type: disc;
 }
 
-#cssmap_tab_container div[id^=cssmap] {
+div#cssmap_preview_tab,
+div#visual_map_container {
     overflow: auto;
+    max-height: 1000px
 }
 
-#cssmap_tab_container div.hovermap img.mapimage {
+div.hoverMap img,
+div#visual_map_container img {
     max-width: none;
 }
 
@@ -24,8 +27,8 @@
 
 #cssmap_tab_container #visual_map_container {
 	width: 100%;
-    margin: 10px auto;
-    position: relative;
+	margin: 10px auto;
+	position: relative;
 }
 
 #cssmap_tab_container #visual_map_container {
@@ -56,4 +59,3 @@
 .hoverMap {
 	margin-top: 50px;
 }
-    
