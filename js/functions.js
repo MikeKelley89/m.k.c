@@ -158,12 +158,28 @@ $.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
                     '<td><input id="' + $new_id + '_xOffset" type="number"></td></tr>' +
 					'<tr><td title="Optional. This moves the popup box Y pixels vertically. Positive values move it down."><i class="fa fa-question-circle-o optional"></i> Y offset</td>' +
                     '<td><input id="' + $new_id + '_yOffset" type="number"></td></tr>' +
-					/*'<tr><td colspan="2">Make this a circle? <input type="radio" name="circle_' + $new_id +'" value="yes"> Yes <input type="radio" name="circle_' + $new_id +'" value="no" checked="checked"> No</td></tr>'+ */
+					'<tr><td colspan="2"><form action="#" method="post" class="radio_' + $new_id + '" id="radio_' + $new_id + '">' +
+						'<fieldset>' +
+							'<legend><strong>Additional options</strong>:</legend>' +
+								'<p>Make this a circle?' +
+									'<label><input type="radio" name="circle" value="yes" /> Yes</label>' +
+									'<label><input type="radio" name="circle" value="no" checked /> No</label>' +
+								'</p>' +
+								'<p>Attach popup to the hotspot or to the parent image? ' +
+									'<label><input type="radio" name="popup" value="hotspot" checked /> Hotspot</label>' +
+									'<label><input type="radio" name="popup" value="parent" /> Parent image</label>' +
+								'</p>' +
+						'</fieldset>' +
+					'</form></td></tr>' +
+					
+					
+					
+				/*	Make this a circle? <input type="radio" name="circle_' + $new_id +'" id="makeCircle" value="yes"> Yes <input type="radio" name="circle_' + $new_id +'" value="no" checked="checked"> No</td></tr>'+ */
 					'</tbody></table>'
 			);
 				
             $('#cssmap_tab_container').append(map_link_properties);
-			
+            
             $('#' + $new_id + '_properties').dialog({
                 autoOpen: true,
                 modal: true
@@ -218,6 +234,21 @@ $.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
 		
         });
     
+    function getRadioVal(form, name) {
+		var val;
+		// get list of radio buttons with specified name
+    	var radios = form.elements[name];
+    
+    	// loop through list of radio buttons
+    	for (var i=0, len=radios.length; i<len; i++) {
+        	if ( radios[i].checked ) { // radio checked?
+        		val = radios[i].value; // if so, hold its value in val
+            	break; // and break out of for loop
+        		}
+    		}
+		return val; // return value of checked radio or undefined if none checked
+	}
+    
 	
     function delete_link(id) {
         $('#' + id).remove();
@@ -258,7 +289,14 @@ $.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
                 var real_rel_position_top = (a.offset().top - parent_offset.top) + 'px';
                 var real_rel_position_left = (a.offset().left - parent_offset.left) + 'px';
                 */
-                codeCSS += "\n" + '#' + map_link_ids[i] + ' { width: ' + a.css('width') + '; height: ' + a.css('height') + '; top: '+ a.css('top') + '; left: ' + a.css('left') + '; }' ; 
+                codeCSS += "\n" + '#' + map_link_ids[i] + ' { width: ' + a.css('width') + '; height: ' + a.css('height') + '; top: '+ a.css('top') + '; left: ' + a.css('left') + ';';
+                
+                var circle = getRadioVal( document.getElementById('radio_' + map_link_ids[i]), 'circle' );
+                if (circle === "yes") {
+                	codeCSS += ' border-radius: 100%; }';
+                } else {
+                	codeCSS += '; }';
+                }
             }
 			
             var image_url = $('#visual_map_container>img').attr('src');
@@ -274,22 +312,27 @@ $.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
                 var text = $('#' + map_link_ids[i] + '_text').val();
                 var title = $('#' + map_link_ids[i] + '_title').val();
                 var url = $('#' + map_link_ids[i] + '_url').val();
-                
-                
-                var yOffset = $('#' + map_link_ids[i] + '_yOffset').val();
-            				
+            	
+            	/* Begin building the HTML string */			
                 codeHTML += "\n \t" + '<a class="mapLink" id="' + map_link_ids[i] + '"';
                 
+                /* Check for optional settings */
                 if ($('#' + map_link_ids[i] + '_xOffset').val())
                 {
                 	var xOffset = $('#' + map_link_ids[i] + '_xOffset').val();
-                	codeHTML += ' data-position.adjust.x=' + xOffset;
+                	codeHTML += ' data-position.adjust.x="' + xOffset + '"';
                 }
                 if ($('#' + map_link_ids[i] + '_yOffset').val())
                 {
-                	var xOffset = $('#' + map_link_ids[i] + '_yOffset').val();
-                	codeHTML += ' data-position.adjust.y=' + yOffset;
+                	var yOffset = $('#' + map_link_ids[i] + '_yOffset').val();
+                	codeHTML += ' data-position.adjust.y="' + yOffset + '"';
                 }
+                var popup = getRadioVal( document.getElementById('radio_' + map_link_ids[i]), 'popup' );
+                if (popup === "parent") {
+                	codeHTML += ' data-tooltip-atParent="true"';
+                }
+                
+                /* End the HTML string */
                 codeHTML += ' title="' + title + '" href="#' + url + '">' + text + '</a>';
                 
                 
