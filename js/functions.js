@@ -11,8 +11,6 @@ $.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
 });
 
 $(document).ready(function() {
-//window.onbeforeunload = "Are you sure you want to leave? Your image map will not be saved!";
-		
 	$('.cssmap_button').button();
 	$('.cssmap_button').button('disable');	
 		
