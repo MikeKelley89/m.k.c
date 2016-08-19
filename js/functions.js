@@ -7,7 +7,7 @@ var imageFilePath = '';
 $.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
 	position	: { my : "right middle", at : "left middle", x: "-24"},
 	style		: { classes: "qtip-light qtip-shadow mkc"},
-	show		: {solo: "true"
+	show		: {solo: "true"}
 });
 
 $(document).ready(function() {
