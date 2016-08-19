@@ -42,7 +42,6 @@ div#visual_map_container img {
 
 #cssmap_tab_container #visual_map_container .map_link .ui-button-icon-only {
     top: -43px;
-    display: inline-flex;
     overflow: visible;
     height: 2.2em;
     flex-wrap: nowrap;
