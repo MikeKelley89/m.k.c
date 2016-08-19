@@ -47,7 +47,6 @@ div#visual_map_container img {
     height: 2.2em;
     flex-wrap: nowrap;
     flex-shrink: 0;
-    text-indent: 9999px;
 }
 
 #cssmap_tab_container .ui-dialog {
