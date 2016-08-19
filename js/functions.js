@@ -118,7 +118,7 @@ $.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
             map_link.css('left', (map_link_running_index * 10)+'px');
             
                 var edit_btn = $(document.createElement('a'));
-                edit_btn.text('Edit');
+                edit_btn.text('');
                 edit_btn.attr('onclick', '$(\'#' + $new_id + '_properties\').dialog(\'open\');');
                 edit_btn.button({
                     icons: {
@@ -129,7 +129,7 @@ $.fn.qtip.defaults = $.extend(true, {}, $.fn.qtip.defaults, {
                 map_link.append(edit_btn);
                 
                 var delete_btn = $(document.createElement('a'));
-                delete_btn.text('Delete');
+                delete_btn.text('');
                 delete_btn.attr('onclick', 'delete_link(\'' + $new_id + '\');');
                 delete_btn.button({
                     icons: {
