@@ -173,22 +173,12 @@ $('#cssmap_new_link').click(function () {
 	});
 	
 	$('input[name="circle"]').click(function(){
-    		if ($(this).is(':checked')) {
-      			alert($(this).val());
-    		}
+    		if ($(this).val('yes')) {
+			$('#' + map_link_ids[i]).css('border-radius', '100%');
+		} else {
+			$('#' + map_link_ids[i]).css('border-radius', '0');
+		}
 	});
-/*
-$("label input[name='circle']").click(function() {
-
-	if ($(this).val('yes')) {
-		$('#' + map_link_ids[i]).css('border-radius', '100%');
-	} else {
-		$('#' + map_link_ids[i]).css('border-radius', '0');
-	}
-	
-	alert('clecked!');
-});
-*/
 
 	$("td[title!=''][title]").qtip();
 });
