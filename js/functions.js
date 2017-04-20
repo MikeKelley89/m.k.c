@@ -228,6 +228,7 @@ function tab_select(event, ui) {
 			var circle = getRadioVal( document.getElementById('radio_' + map_link_ids[i]), 'circle' );
 			if (circle === "yes") {
 				codeCSS += '; border-radius: 100%; }';
+				$('#' + map_link_ids[i]).css('border-radius', '100%');
 			} else {
 				codeCSS += '; }';
 			}
