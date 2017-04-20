@@ -30,23 +30,7 @@ $(document).ready(function() {
 			'border-color': $('.borderColor').val()
 		});
 	});
-	$('input[name="circle"]').click(function(){
-    		if ($(this).is(':checked')) {
-      			alert($(this).val());
-    		}
-	});
-/*
-$("label input[name='circle']").click(function() {
-
-	if ($(this).val('yes')) {
-		$('#' + map_link_ids[i]).css('border-radius', '100%');
-	} else {
-		$('#' + map_link_ids[i]).css('border-radius', '0');
-	}
 	
-	alert('clecked!');
-});
-*/
 });
 
 $('#map_link_name').keyup(function(){
@@ -187,6 +171,24 @@ $('#cssmap_new_link').click(function () {
 		autoOpen: true,
 		modal: true
 	});
+	
+	$('input[name="circle"]').click(function(){
+    		if ($(this).is(':checked')) {
+      			alert($(this).val());
+    		}
+	});
+/*
+$("label input[name='circle']").click(function() {
+
+	if ($(this).val('yes')) {
+		$('#' + map_link_ids[i]).css('border-radius', '100%');
+	} else {
+		$('#' + map_link_ids[i]).css('border-radius', '0');
+	}
+	
+	alert('clecked!');
+});
+*/
 
 	$("td[title!=''][title]").qtip();
 });
