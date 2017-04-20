@@ -285,11 +285,14 @@ function tab_select(event, ui) {
 }
 
 $('input[name="circle"]').click(function() {
+/*
 	if ($(this).val('yes')) {
 		$('#' + map_link_ids[i]).css('border-radius', '100%');
 	} else {
 		$('#' + map_link_ids[i]).css('border-radius', '0');
 	}
+	*/
+	alert('clecked!');
 });
 
 if (!Array.prototype.indexOf) {
