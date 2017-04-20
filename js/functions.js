@@ -228,7 +228,6 @@ function tab_select(event, ui) {
 			var circle = getRadioVal( document.getElementById('radio_' + map_link_ids[i]), 'circle' );
 			if (circle === "yes") {
 				codeCSS += '; border-radius: 100%; }';
-				$('#' + map_link_ids[i]).css('border-radius', '100%');
 			} else {
 				codeCSS += '; }';
 			}
@@ -284,6 +283,14 @@ function tab_select(event, ui) {
 		LoadMyJs('https://rawgit.com/MikeKelley89/m.k.c/master/js/hovermap.js');
 	}
 }
+
+$('input[name="circle"]').click(function() {
+	if ($(this).val('yes')) {
+		$('#' + map_link_ids[i]).css('border-radius', '100%');
+	} else {
+		$('#' + map_link_ids[i]).css('border-radius', '0');
+	}
+});
 
 if (!Array.prototype.indexOf) {
 	Array.prototype.indexOf = function(elt /*, from*/) {
