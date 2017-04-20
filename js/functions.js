@@ -284,7 +284,7 @@ function tab_select(event, ui) {
 	}
 }
 
-$('input[name="circle"]').click(function() {
+$("label input[name='circle']").click(function() {
 /*
 	if ($(this).val('yes')) {
 		$('#' + map_link_ids[i]).css('border-radius', '100%');
