@@ -43,6 +43,11 @@ $('#map_link_name').keyup(function(){
 $('#cssmap_tab_container').tabs({
 	activate: tab_select
 });
+
+$("#cssmap_tab_container ul li").delegate('a', 'click', function(e){
+         e.preventDefault();
+         return false;
+    });
 		
 function imageInput(fileInput) {
 			
