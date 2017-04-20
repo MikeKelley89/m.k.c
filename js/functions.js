@@ -172,14 +172,6 @@ $('#cssmap_new_link').click(function () {
 		modal: true
 	});
 	
-	$('input[name="circle"]').click(function(){
-    		if ($(this).val('yes')) {
-			$('#' + map_link_ids[i]).css('border-radius', '100%');
-		} else {
-			$('#' + map_link_ids[i]).css('border-radius', '0');
-		}
-	});
-
 	$("td[title!=''][title]").qtip();
 });
 
