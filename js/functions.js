@@ -282,16 +282,7 @@ function tab_select(event, ui) {
 		map_allow_generate_code = false;
 		prettyPrint();
 		LoadMyJs('https://rawgit.com/MikeKelley89/m.k.c/master/js/hovermap.js');
-		
-		$('input[name="circle"]').click(function(){
-    		if ($(this).val('yes')) {
-			$('#' + map_link_ids[i]).css('border-radius', '100%');
-			alert('circly');
-		} else {
-			$('#' + map_link_ids[i]).css('border-radius', '0');
-			alert('no circly');
-		}
-	});
+
 	}
 }
 
