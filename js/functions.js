@@ -70,7 +70,7 @@ function imageInput(fileInput) {
 	img.css('top', 0);
 	img.css('left', 0);
 			
-	img.load(function() {
+	img.on('load', function() {
 		$('#visual_map_container').css('height', (this.height+50)+'px');
 	});
 
