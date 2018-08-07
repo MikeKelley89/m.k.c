@@ -59,7 +59,7 @@ function imageInput(event, fileInput) {
 	$('.cssmap_button').button('disable');
 	$('.map_link, .ui-dialog, .ui-dialog-content').remove();
 	var imageFileName = $( '#cssmap_image_file' )[0].files[0];
-	//imageFileName = fileInput.files[0].name;
+	imageFileName = fileInput.files[0].name;
 	imageFilePath = URL.createObjectURL(event.target.files[0]);
 	map_link_running_index = 1;
 	
