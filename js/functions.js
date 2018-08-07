@@ -50,7 +50,7 @@ $("#cssmap_tab_container ul li").delegate('a', 'click', function(e){
          return false;
     });
 		
-function imageInput(fileInput) {
+function imageInput(event, fileInput) {
 			
 	//resets
 	map_link_ids = new Array();
